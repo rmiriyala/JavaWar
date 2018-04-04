@@ -8,4 +8,9 @@ public class GameEngine {
         }
         deck.print();
     }
+
+    public PlayerStrategy playGame(PlayerStrategy strategyA, PlayerStrategy strategyB) {
+        //play a round of "blackjack" with these two player strategies returning the winning one
+        return null;
+    }
 }
