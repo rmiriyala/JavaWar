@@ -2,14 +2,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
+    public Strategy strategy;
     public List<Card> hand;
     public List<Card> deadwood;
 
     private static final int HAND_SIZE = 4;
 
-    public Player(PlayerStrategy playerStrategy) {
-        hand = new ArrayList<>();
-        deadwood = new ArrayList<>();
+    public Player(Strategy strategy) {
+        this.strategy = strategy;
+        this.hand = new ArrayList<>();
+        this.deadwood = new ArrayList<>();
     }
 
     public void receiveInitialHand(Deck deck) {
@@ -19,6 +21,10 @@ public class Player {
             }
             hand.add(deck.pop());
         }
+    }
+
+    public Card playCard(List<Card> opponentPlayedCards) {
+        return strategy.playCard(opponentPlayedCards);
     }
 
     public void printHand() {
@@ -33,5 +39,10 @@ public class Player {
         for (Card card: deadwood) {
             card.print();
         }
+    }
+
+    public void updateStrategy() {
+        strategy.setDeadwood(this.deadwood);
+        strategy.setHand(this.hand);
     }
 }
