@@ -13,10 +13,11 @@ public class GameEngine {
         //Initialize the players, using four different player strategies
         List<Player> players = new ArrayList<>();
 
-        Player player1 = new Player(StrategyA);
-        Player player2 = new Player(StrategyB);
-        Player player3 = new Player(StrategyC);
-        Player player4 = new Player(StrategyD);
+        Player player1 = new StrategyA();
+        Player player2 = new StrategyB();
+        Player player3 = new StrategyC();
+        Player player4 = new StrategyD();
+
 
         players.add(player1);
         players.add(player2);
@@ -30,7 +31,7 @@ public class GameEngine {
 
         //Run 101 games, adding a win to the winning player's total count
         for (int i = 0; i < 101; i++) {
-            Player winner = playGame(players);
+            Player winner = playGame(players, deck);
             winner.wins++;
         }
 

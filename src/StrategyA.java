@@ -1,8 +1,12 @@
 import java.util.List;
 
-public class Strategy extends Player {
+public class StrategyA extends Player {
 
+    public StrategyA() {
+        super();
+    }
 
+    @Override
     public Card playCard(List<Card> opponentPlayedCards) {
         Card cardPlayed = null;
         int maxCardPlayed = maxCard(opponentPlayedCards);
@@ -11,7 +15,6 @@ public class Strategy extends Player {
         if (opponentPlayedCards.isEmpty()) {
             // strategy if playing first card
 
-            cardPlayed =
         } else if (opponentPlayedCards.size() == 1) {
             // strategy if playing second card
 
@@ -31,24 +34,16 @@ public class Strategy extends Player {
 
     /**
      * Finds the max card played so far.
-     * @param opponentPlayedCards the cards played by opponents
+     * @param cards the cards played by opponents
      * @return the highest card played
      */
-    public int maxCard(List<Card> cardList) {
+    private int maxCard(List<Card> cards) {
         int max = 0;
-        for (Card card: opponentPlayedCards) {
-            if (card.getValue() > max) {
+        for (Card card: cards) {
+            if (card.getCardValue() > max) {
                 max = card.getCardValue();
             }
         }
         return max;
-    }
-
-    public void setHand(List<Card> hand) {
-        this.hand = hand;
-    }
-
-    public void setDeadwood(List<Card> deadwood) {
-        this.deadwood = deadwood;
     }
 }
