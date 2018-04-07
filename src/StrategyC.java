@@ -1,14 +1,14 @@
 import java.util.List;
 
-public class StrategyA extends Player {
+public class StrategyC extends Player {
 
-    public StrategyA() {
+    public StrategyC() {
         super();
     }
 
     @Override
     public Card playCard(List<Card> opponentPlayedCards) {
-        Card cardPlayed = hand.get(0); //initialize to something
+        Card cardPlayed = null;
         int maxCardPlayed = maxCard(opponentPlayedCards);
 
         // insert code here.
@@ -24,8 +24,10 @@ public class StrategyA extends Player {
         } else if (opponentPlayedCards.size() == 3) {
             // strategy if playing last card
 
+        } else {
+            System.out.println("opponent played cards > 3");
         }
-
+        System.out.println(hand.size());
         hand.remove(cardPlayed);
         return cardPlayed;
     }
