@@ -3,8 +3,9 @@ import java.util.List;
 
 public class Player {
     public Strategy strategy;
-    public List<Card> hand;
-    public List<Card> deadwood;
+    public int wins;
+    protected List<Card> hand;
+    protected List<Card> deadwood;
 
     private static final int HAND_SIZE = 4;
 
@@ -12,6 +13,7 @@ public class Player {
         this.strategy = strategy;
         this.hand = new ArrayList<>();
         this.deadwood = new ArrayList<>();
+        this.wins = 0;
     }
 
     public void receiveInitialHand(Deck deck) {
@@ -44,5 +46,9 @@ public class Player {
     public void updateStrategy() {
         strategy.setDeadwood(this.deadwood);
         strategy.setHand(this.hand);
+    }
+
+    public List<Card> getHand() {
+        return hand;
     }
 }
