@@ -25,13 +25,12 @@ public class Card implements Comparable<Card> {
         return rank;
     }
 
-    /**
-     * Will get the card value as it is used in war, with Ace beating King.
-     *
-     * @return - the integer value of a card
-     */
     public int getCardValue() {
-        return (rank.ordinal() == CardRank.ACE.ordinal()) ? CardRank.KING.ordinal() + 1 : rank.ordinal();
+        int cardSuitComponent = suit.ordinal();
+        int cardRankComponent =
+                (rank.ordinal() == CardRank.ACE.ordinal()) ? (CardRank.KING.ordinal() + 1) * 10 : rank.ordinal() * 10;
+
+        return cardRankComponent + cardSuitComponent;
     }
 
     /**

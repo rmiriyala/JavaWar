@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class GameEngine {
 
@@ -9,11 +11,45 @@ public class GameEngine {
         deck.shuffle();
 
         //Initialize the players, using four different player strategies
+        List<Player> players = new ArrayList<>();
+
+        Player player1 = new Player(StrategyA);
+        Player player2 = new Player(StrategyB);
+        Player player3 = new Player(StrategyC);
+        Player player4 = new Player(StrategyD);
+
+        players.add(player1);
+        players.add(player2);
+        players.add(player3);
+        players.add(player4);
+
+        //Declare win counts for the 4 players
+        for (Player player: players) {
+            player.wins = 0;
+        }
+
+        //Run 101 games, adding a win to the winning player's total count
+        for (int i = 0; i < 101; i++) {
+            Player winner = playGame(players);
+            winner.wins++;
+        }
+
+        //Print the number of wins for each player after 100 games
+        System.out.println("Player 1 wins: " + player1.wins);
+        System.out.println("Player 1 wins: " + player1.wins);
+        System.out.println("Player 1 wins: " + player1.wins);
+        System.out.println("Player 1 wins: " + player1.wins);
 
     }
 
-    public Player playGame(List<Player> players) {
-        //play a round of "blackjack" with these two player strategies returning the winning one
-        return null;
+    private static Player playGame(List<Player> players, Deck deck) {
+        //Deal cards to every player
+        for (Player player: players) {
+            player.receiveInitialHand(deck);
+        }
+
+        //Have each player play a card, giving the deadwood cards to the loser
+        List<Card> roundDeadwood = new ArrayList<>();
+        Player roundLoser;
     }
 }
