@@ -1,8 +1,8 @@
 import java.util.List;
 
-public class StrategyA extends Player {
+public class StrategyB extends Player {
 
-    public StrategyA() {
+    public StrategyB() {
         super();
     }
 
@@ -74,3 +74,4 @@ public class StrategyA extends Player {
         return 0;
     }
 }
+
