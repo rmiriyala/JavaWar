@@ -27,7 +27,6 @@ public class StrategyC extends Player {
         } else {
             System.out.println("opponent played cards > 3");
         }
-        System.out.println(hand.size());
         if (cardPlayed == null) {
             cardPlayed = hand.get(0);
         }
