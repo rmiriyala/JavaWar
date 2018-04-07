@@ -8,7 +8,7 @@ public class StrategyB extends Player {
 
     @Override
     public Card playCard(List<Card> opponentPlayedCards) {
-        Card cardPlayed = null;
+        Card cardPlayed = hand.get(0); //initialize to something
         int maxCardPlayed = maxCard(opponentPlayedCards);
 
         // insert code here.
@@ -28,6 +28,9 @@ public class StrategyB extends Player {
             System.out.println("opponent played cards > 3");
         }
         System.out.println(hand.size());
+        if (cardPlayed == null) {
+            cardPlayed = hand.get(0);
+        }
         hand.remove(cardPlayed);
         return cardPlayed;
     }

@@ -27,6 +27,9 @@ public class StrategyA extends Player {
         }
 
         hand.remove(cardPlayed);
+        if (cardPlayed == null) {
+            cardPlayed = hand.get(0);
+        }
         return cardPlayed;
     }
 

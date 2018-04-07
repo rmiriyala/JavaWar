@@ -8,9 +8,9 @@ public class GameEngine {
         List<Player> players = new ArrayList<>();
 
         Player player1 = new StrategyA();
-        Player player2 = new StrategyA();
-        Player player3 = new StrategyA();
-        Player player4 = new StrategyA();
+        Player player2 = new StrategyB();
+        Player player3 = new StrategyC();
+        Player player4 = new StrategyD();
 
 
         players.add(player1);
