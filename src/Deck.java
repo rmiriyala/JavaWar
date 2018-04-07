@@ -23,9 +23,13 @@ public class Deck {
     }
 
     public Card pop() {
-        Card card = deck.get(0);
-        deck.remove(0);
-        return card;
+        if (deck != null && deck.size() != 0) {
+            Card card = deck.get(0);
+            deck.remove(card);
+            return card;
+        }
+
+        return null;
     }
 
     public List<Card> dealNCards(int n) {

@@ -14,21 +14,25 @@ public class Player {
         this.wins = 0;
     }
 
-    public List<Card> getHand() {
-        return hand;
-    }
-
-    public List<Card> getDeadwood() {
-        return deadwood;
-    }
-
-    public void receiveInitialHand(Deck deck) {
+    public void takeInitialHandFromDeck(Deck deck) {
         for (int i = 0; i < HAND_SIZE; i++) {
             if (hand == null) {
                 hand = new ArrayList<>();
             }
             hand.add(deck.pop());
         }
+    }
+
+    public void receiveDeadwood(List<Card> deadwoodCards) {
+        deadwood.addAll(deadwoodCards);
+    }
+
+    public int calculateDeadwoodValue() {
+        int value = 0;
+        for (Card card: deadwood) {
+            value += card.getCardValue();
+        }
+        return value;
     }
 
     public Card playCard(List<Card> opponentPlayedCards) {
